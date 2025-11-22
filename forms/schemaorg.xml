@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fields name="schema">
+		<fieldset
+			name="schema"
+			label="PLG_SYSTEM_SCHEMA_FIELD_SCHEMA_LABEL"
+		>
+			<field
+				name="Service"
+				type="subform"
+				showon="schemaType:Service"
+			>
+				<form>
+
+					<field
+						name="@type"
+						type="hidden"
+						default="Service"
+					/>
+
+					<field
+						name="noteService"
+						type="note"
+						description="PLG_SCHEMAORG_SERVICE_DESCRIPTION_LABEL"
+						class="alert alert-info w-100"
+					/>
+
+					<field
+						name="image"
+						type="media"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_IMAGE_LABEL"
+					/>
+
+					<field
+						name="name"
+						type="text"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_NAME_LABEL"
+						filter="string"
+						size="30"
+					/>
+
+					<field
+						name="description"
+						type="text"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_DESCRIPTION_LABEL"
+						filter="string"
+					/>
+
+					<field
+						name="provider"
+						type="subform"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_PROVIDER_LABEL"
+						>
+						<form>
+
+							<field
+								name="@type"
+								type="list"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_TYPE_LABEL"
+								default="person"
+								>
+								<option value="person">PLG_SCHEMAORG_SERVICE_FIELD_PERSON_LABEL</option>
+								<option value="organization">PLG_SCHEMAORG_SERVICE_FIELD_ORGANIZATION_LABEL</option>
+							</field>
+
+							<field
+								name="name"
+								type="text"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_NAME_LABEL"
+								filter="string"
+							/>
+
+							<field
+								name="url"
+								type="url"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_URL_LABEL"
+								filter="url"
+								validate="url"
+							/>
+
+							<field
+								name="logo"
+								type="subform"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_LOGO_LABEL"
+								showon="@type:organization"
+							>
+								<form>
+
+									<field
+										name="@type"
+										type="hidden"
+										default="ImageObject"
+									/>
+
+									<field
+										name="url"
+										type="media"
+										label="PLG_SCHEMAORG_SERVICE_FIELD_URL_LABEL"
+									/>
+
+								</form>
+							</field>
+
+							<field
+								name="email"
+								type="email"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_EMAIL_LABEL"
+								validate="email"
+							/>
+
+							<field
+								name="address"
+								type="subform"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_ADDRESS_LABEL"
+							>
+								<form>
+
+									<field
+										name="@type"
+										type="hidden"
+										default="PostalAddress"
+									/>
+
+									<field
+										name="addressLocality"
+										type="text"
+										label="PLG_SCHEMAORG_SERVICE_FIELD_LOCALITY_LABEL"
+									/>
+
+									<field
+										name="postalCode"
+										type="text"
+										label="PLG_SCHEMAORG_SERVICE_FIELD_POSTAL_CODE_LABEL"
+									/>
+
+									<field
+										name="streetAddress"
+										type="text"
+										label="PLG_SCHEMAORG_SERVICE_FIELD_STREET_ADDRESS_LABEL"
+									/>
+
+								</form>
+							</field>
+
+						</form>
+					</field>
+
+					<field
+						name="serviceType"
+						type="text"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_SERVICE_TYPE_LABEL"
+						filter="string"
+						size="30"
+					/>
+
+					<field
+						name="areaServed"
+						type="text"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_AREA_SERVED_LABEL"
+						filter="string"
+						size="30"
+					/>
+
+					<field
+						name="termsOfService"
+						type="url"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_TERMS_OF_SERVICE_LABEL"
+						filter="url"
+						validate="url"
+					/>
+
+					<field
+						name="url"
+						type="url"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_URL_LABEL"
+						filter="url"
+						validate="url"
+					/>
+
+					<field
+						name="category"
+						type="text"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_CATEGORY_LABEL"
+						filter="string"
+						size="30"
+					/>
+
+					<field
+						name="slogan"
+						type="text"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_SLOGAN_LABEL"
+						filter="string"
+						size="60"
+					/>
+
+					<field
+						name="keywords"
+						type="text"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_KEYWORDS_LABEL"
+						filter="string"
+						size="60"
+					/>
+
+					<field
+						name="sameAs"
+						type="subform"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_SAME_AS_LABEL"
+						multiple="true"
+					>
+						<form>
+							<field
+								name="sameAsUrl"
+								type="url"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_URL_LABEL"
+								filter="url"
+								validate="url"
+							/>
+						</form>
+					</field>
+
+					<field
+						name="audience"
+						type="subform"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_AUDIENCE_LABEL"
+					>
+						<form>
+							<field
+								name="@type"
+								type="hidden"
+								default="Audience"
+							/>
+							<field
+								name="name"
+								type="text"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_NAME_LABEL"
+								filter="string"
+							/>
+						</form>
+					</field>
+
+					<field
+						name="brand"
+						type="subform"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_BRAND_LABEL"
+					>
+						<form>
+							<field
+								name="@type"
+								type="hidden"
+								default="Brand"
+							/>
+							<field
+								name="name"
+								type="text"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_NAME_LABEL"
+								filter="string"
+							/>
+							<field
+								name="logo"
+								type="media"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_LOGO_LABEL"
+							/>
+						</form>
+					</field>
+
+					<field
+						name="serviceLocation"
+						type="subform"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_SERVICE_LOCATION_LABEL"
+					>
+						<form>
+							<field
+								name="@type"
+								type="hidden"
+								default="PostalAddress"
+							/>
+							<field
+								name="streetAddress"
+								type="text"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_STREET_ADDRESS_LABEL"
+							/>
+							<field
+								name="addressLocality"
+								type="text"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_LOCALITY_LABEL"
+							/>
+							<field
+								name="addressRegion"
+								type="text"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_ADDRESS_REGION_LABEL"
+							/>
+							<field
+								name="postalCode"
+								type="text"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_POSTAL_CODE_LABEL"
+							/>
+							<field
+								name="addressCountry"
+								type="text"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_ADDRESS_COUNTRY_LABEL"
+							/>
+						</form>
+					</field>
+
+					<field
+						name="offers"
+						type="subform"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_OFFERS_LABEL"
+						multiple="true"
+					>
+						<form>
+							<field
+								name="@type"
+								type="hidden"
+								default="Offer"
+							/>
+							<field
+								name="priceCurrency"
+								type="text"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_PRICE_CURRENCY_LABEL"
+								filter="string"
+							/>
+							<field
+								name="price"
+								type="text"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_PRICE_LABEL"
+								filter="string"
+							/>
+							<field
+								name="url"
+								type="url"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_URL_LABEL"
+								filter="url"
+								validate="url"
+							/>
+						</form>
+					</field>
+
+					<field
+						name="aggregateRating"
+						type="subform"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_AGGREGATE_RATING_LABEL"
+					>
+						<form>
+							<field
+								name="@type"
+								type="hidden"
+								default="AggregateRating"
+							/>
+							<field
+								name="ratingValue"
+								type="text"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_RATING_VALUE_LABEL"
+								filter="string"
+							/>
+							<field
+								name="reviewCount"
+								type="text"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_REVIEW_COUNT_LABEL"
+								filter="string"
+							/>
+						</form>
+					</field>
+
+					<field
+						name="reviews"
+						type="subform"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_REVIEWS_LABEL"
+						multiple="true"
+					>
+						<form>
+							<field
+								name="@type"
+								type="hidden"
+								default="Review"
+							/>
+							<field
+								name="author"
+								type="text"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_AUTHOR_LABEL"
+								filter="string"
+							/>
+							<field
+								name="reviewBody"
+								type="text"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_REVIEW_BODY_LABEL"
+								filter="string"
+							/>
+						</form>
+					</field>
+
+					<field
+						name="genericField"
+						type="subform"
+						label="PLG_SCHEMAORG_SERVICE_FIELD_GENERIC_FIELD_LABEL"
+						multiple="true"
+					>
+						<form>
+							<field
+								name="genericTitle"
+								type="text"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_GENERIC_TITLE_LABEL"
+								filter="string"
+								size="30"
+							/>
+							<field
+								name="genericValue"
+								type="text"
+								filter="string"
+								size="30"
+								label="PLG_SCHEMAORG_SERVICE_FIELD_GENERIC_VALUE_LABEL"
+							/>
+						</form>
+
+					</field>
+
+				</form>
+			</field>
+		</fieldset>
+	</fields>
+</form>

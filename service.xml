@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="schemaorg" method="upgrade" plugin="service">
+	<name>plg_schemaorg_service</name>
+	<author>Panagiotis Kiriakopoulos</author>
+	<creationDate>2025-11</creationDate>
+	<copyright>(C) 2025 Panagiotis Kiriakopoulos</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>kiriakopoulos.p@gmail.com</authorEmail>
+	<authorUrl>www.github.com/pnkr</authorUrl>
+	<version>5.1.0</version>
+	<description>PLG_SCHEMAORG_SERVICE_XML_DESCRIPTION</description>
+	<namespace path="src">Pnkr\Plugin\Schemaorg\Service</namespace>
+	<files>
+		<folder plugin="service">services</folder>
+		<folder>src</folder>
+		<folder>forms</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/plg_schemaorg_service.ini</language>
+		<language tag="en-GB">language/en-GB/plg_schemaorg_service.sys.ini</language>
+		<language tag="el-GR">language/el-GR/plg_schemaorg_service.ini</language>
+		<language tag="el-GR">language/el-GR/plg_schemaorg_service.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="allowedlist"
+					type="SchemaorgComponentSections"
+					label="JSCHEMAORG_EXTENSION_ALLOWED_LABEL"
+					description="JSCHEMAORG_EXTENSION_ALLOWED_DESCRIPTION"
+					multiple="multiple"
+					layout="joomla.form.field.list-fancy-select"
+				/>
+				<field
+					name="forbiddenlist"
+					type="SchemaorgComponentSections"
+					label="JSCHEMAORG_EXTENSION_FORBIDDEN_LABEL"
+					description="JSCHEMAORG_EXTENSION_FORBIDDEN_DESCRIPTION"
+					multiple="multiple"
+					layout="joomla.form.field.list-fancy-select"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+	<updateservers>
+		<server type="extension" priority="1" name="Service Schema.org Plugin Updates">
+			https://raw.githubusercontent.com/pnkr/plg_schemaorg_service/main/updates.xml
+		</server>
+	</updateservers>
+</extension>

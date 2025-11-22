@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<updates>
+	<update>
+		<name>Service Schema.org Plugin</name>
+		<description>Provides Schema.org Service structured data fields for Joomla Articles</description>
+		<element>service</element>
+		<type>plugin</type>
+		<folder>schemaorg</folder>
+		<client>site</client>
+		<version>5.1.0</version>
+		<infourl title="Service Schema.org Plugin">https://github.com/pnkr/plg_schemaorg_service</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/pnkr/plg_schemaorg_service/releases/download/v5.1.0/plg_schemaorg_service-5.1.0.zip</downloadurl>
+		</downloads>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<maintainer>Panagiotis Kiriakopoulos</maintainer>
+		<maintainerurl>https://github.com/pnkr</maintainerurl>
+		<targetplatform name="joomla" version="5.1"/>
+		<php_minimum>8.1.0</php_minimum>
+	</update>
+</updates>

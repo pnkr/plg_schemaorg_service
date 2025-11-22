@@ -17,10 +17,11 @@
 		</tags>
 		<maintainer>Panagiotis Kiriakopoulos</maintainer>
 		<maintainerurl>https://github.com/pnkr</maintainerurl>
-		<targetplatform name="joomla" version="5.1"/>
+		<targetplatform name="joomla" version="5.1|6.*"/>
 		<php_minimum>8.1.0</php_minimum>
 	</update>
 </updates>
+
 
 
 

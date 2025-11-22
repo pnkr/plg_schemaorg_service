@@ -7,7 +7,7 @@
 		<type>plugin</type>
 		<folder>schemaorg</folder>
 		<client>site</client>
-		<version>5.1.0</version>
+		<version>1.0.0</version>
 		<infourl title="Service Schema.org Plugin">https://github.com/pnkr/plg_schemaorg_service</infourl>
 		<downloads>
 			<downloadurl type="full" format="zip">https://github.com/pnkr/plg_schemaorg_service/releases/download/1.0.0/plg_schemaorg_service-1.0.0.zip</downloadurl>
@@ -21,5 +21,6 @@
 		<php_minimum>8.1.0</php_minimum>
 	</update>
 </updates>
+
 
 

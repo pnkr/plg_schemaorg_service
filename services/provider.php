@@ -6,8 +6,10 @@
  *
  * @copyright   (C) 2025 Panagiotis Kiriakopoulos. <https://www.github.com/pnkr>
  * @author      Panagiotis Kiriakopoulos <kiriakopoulos.p@gmail.com>
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @license     GNU General Public License version 2 or later; see LICENSE
  */
+
+declare(strict_types=1);
 
 \defined('_JEXEC') or die;
 
@@ -26,13 +28,13 @@ return new class () implements ServiceProviderInterface {
      *
      * @return  void
      *
-     * @since   5.1.0
+     * @since   1.0.0
      */
     public function register(Container $container)
     {
         $container->set(
             PluginInterface::class,
-            function (Container $container) {
+            static function (Container $container) {
                 $plugin = new Service(
                     (array) PluginHelper::getPlugin('schemaorg', 'service')
                 );

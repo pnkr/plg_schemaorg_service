@@ -36,14 +36,14 @@
 						type="text"
 						label="PLG_SCHEMAORG_SERVICE_FIELD_NAME_LABEL"
 						filter="string"
-						size="30"
 					/>
 
 					<field
 						name="description"
-						type="text"
+						type="textarea"
 						label="PLG_SCHEMAORG_SERVICE_FIELD_DESCRIPTION_LABEL"
 						filter="string"
+						rows="3"
 					/>
 
 					<field
@@ -59,6 +59,7 @@
 								label="PLG_SCHEMAORG_SERVICE_FIELD_TYPE_LABEL"
 								default="person"
 								>
+								<!-- Lowercase values kept for compatibility with saved data; capitalized on output -->
 								<option value="person">PLG_SCHEMAORG_SERVICE_FIELD_PERSON_LABEL</option>
 								<option value="organization">PLG_SCHEMAORG_SERVICE_FIELD_ORGANIZATION_LABEL</option>
 							</field>
@@ -105,6 +106,8 @@
 								name="email"
 								type="email"
 								label="PLG_SCHEMAORG_SERVICE_FIELD_EMAIL_LABEL"
+								description="PLG_SCHEMAORG_SERVICE_FIELD_EMAIL_DESC"
+								filter="email"
 								validate="email"
 							/>
 
@@ -122,21 +125,38 @@
 									/>
 
 									<field
+										name="streetAddress"
+										type="text"
+										label="PLG_SCHEMAORG_SERVICE_FIELD_STREET_ADDRESS_LABEL"
+										filter="string"
+									/>
+
+									<field
 										name="addressLocality"
 										type="text"
 										label="PLG_SCHEMAORG_SERVICE_FIELD_LOCALITY_LABEL"
+										filter="string"
+									/>
+
+									<field
+										name="addressRegion"
+										type="text"
+										label="PLG_SCHEMAORG_SERVICE_FIELD_ADDRESS_REGION_LABEL"
+										filter="string"
 									/>
 
 									<field
 										name="postalCode"
 										type="text"
 										label="PLG_SCHEMAORG_SERVICE_FIELD_POSTAL_CODE_LABEL"
+										filter="string"
 									/>
 
 									<field
-										name="streetAddress"
+										name="addressCountry"
 										type="text"
-										label="PLG_SCHEMAORG_SERVICE_FIELD_STREET_ADDRESS_LABEL"
+										label="PLG_SCHEMAORG_SERVICE_FIELD_ADDRESS_COUNTRY_LABEL"
+										filter="string"
 									/>
 
 								</form>
@@ -150,7 +170,6 @@
 						type="text"
 						label="PLG_SCHEMAORG_SERVICE_FIELD_SERVICE_TYPE_LABEL"
 						filter="string"
-						size="30"
 					/>
 
 					<field
@@ -158,7 +177,6 @@
 						type="text"
 						label="PLG_SCHEMAORG_SERVICE_FIELD_AREA_SERVED_LABEL"
 						filter="string"
-						size="30"
 					/>
 
 					<field
@@ -182,7 +200,6 @@
 						type="text"
 						label="PLG_SCHEMAORG_SERVICE_FIELD_CATEGORY_LABEL"
 						filter="string"
-						size="30"
 					/>
 
 					<field
@@ -190,15 +207,6 @@
 						type="text"
 						label="PLG_SCHEMAORG_SERVICE_FIELD_SLOGAN_LABEL"
 						filter="string"
-						size="60"
-					/>
-
-					<field
-						name="keywords"
-						type="text"
-						label="PLG_SCHEMAORG_SERVICE_FIELD_KEYWORDS_LABEL"
-						filter="string"
-						size="60"
 					/>
 
 					<field
@@ -267,37 +275,38 @@
 						name="serviceLocation"
 						type="subform"
 						label="PLG_SCHEMAORG_SERVICE_FIELD_SERVICE_LOCATION_LABEL"
+						description="PLG_SCHEMAORG_SERVICE_FIELD_SERVICE_LOCATION_DESC"
 					>
 						<form>
-							<field
-								name="@type"
-								type="hidden"
-								default="PostalAddress"
-							/>
 							<field
 								name="streetAddress"
 								type="text"
 								label="PLG_SCHEMAORG_SERVICE_FIELD_STREET_ADDRESS_LABEL"
+								filter="string"
 							/>
 							<field
 								name="addressLocality"
 								type="text"
 								label="PLG_SCHEMAORG_SERVICE_FIELD_LOCALITY_LABEL"
+								filter="string"
 							/>
 							<field
 								name="addressRegion"
 								type="text"
 								label="PLG_SCHEMAORG_SERVICE_FIELD_ADDRESS_REGION_LABEL"
+								filter="string"
 							/>
 							<field
 								name="postalCode"
 								type="text"
 								label="PLG_SCHEMAORG_SERVICE_FIELD_POSTAL_CODE_LABEL"
+								filter="string"
 							/>
 							<field
 								name="addressCountry"
 								type="text"
 								label="PLG_SCHEMAORG_SERVICE_FIELD_ADDRESS_COUNTRY_LABEL"
+								filter="string"
 							/>
 						</form>
 					</field>
@@ -319,12 +328,15 @@
 								type="text"
 								label="PLG_SCHEMAORG_SERVICE_FIELD_PRICE_CURRENCY_LABEL"
 								filter="string"
+								maxlength="3"
 							/>
 							<field
 								name="price"
-								type="text"
+								type="number"
 								label="PLG_SCHEMAORG_SERVICE_FIELD_PRICE_LABEL"
-								filter="string"
+								filter="float"
+								min="0"
+								step="0.01"
 							/>
 							<field
 								name="url"
@@ -335,6 +347,13 @@
 							/>
 						</form>
 					</field>
+
+					<field
+						name="noteReviews"
+						type="note"
+						description="PLG_SCHEMAORG_SERVICE_REVIEWS_NOTE"
+						class="alert alert-warning w-100"
+					/>
 
 					<field
 						name="aggregateRating"
@@ -349,15 +368,19 @@
 							/>
 							<field
 								name="ratingValue"
-								type="text"
+								type="number"
 								label="PLG_SCHEMAORG_SERVICE_FIELD_RATING_VALUE_LABEL"
-								filter="string"
+								filter="float"
+								min="0"
+								step="0.1"
 							/>
 							<field
 								name="reviewCount"
-								type="text"
+								type="number"
 								label="PLG_SCHEMAORG_SERVICE_FIELD_REVIEW_COUNT_LABEL"
-								filter="string"
+								filter="integer"
+								min="0"
+								step="1"
 							/>
 						</form>
 					</field>
@@ -370,11 +393,6 @@
 					>
 						<form>
 							<field
-								name="@type"
-								type="hidden"
-								default="Review"
-							/>
-							<field
 								name="author"
 								type="text"
 								label="PLG_SCHEMAORG_SERVICE_FIELD_AUTHOR_LABEL"
@@ -382,9 +400,10 @@
 							/>
 							<field
 								name="reviewBody"
-								type="text"
+								type="textarea"
 								label="PLG_SCHEMAORG_SERVICE_FIELD_REVIEW_BODY_LABEL"
 								filter="string"
+								rows="3"
 							/>
 						</form>
 					</field>
@@ -400,15 +419,14 @@
 								name="genericTitle"
 								type="text"
 								label="PLG_SCHEMAORG_SERVICE_FIELD_GENERIC_TITLE_LABEL"
-								filter="string"
-								size="30"
+								filter="cmd"
+								pattern="[A-Za-z][A-Za-z0-9_]*"
 							/>
 							<field
 								name="genericValue"
 								type="text"
-								filter="string"
-								size="30"
 								label="PLG_SCHEMAORG_SERVICE_FIELD_GENERIC_VALUE_LABEL"
+								filter="string"
 							/>
 						</form>
 

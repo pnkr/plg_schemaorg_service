@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<extension type="plugin" group="schemaorg" method="upgrade" plugin="service">
+<extension type="plugin" group="schemaorg" method="upgrade">
 	<name>plg_schemaorg_service</name>
 	<author>Panagiotis Kiriakopoulos</author>
 	<creationDate>2025-11</creationDate>
 	<copyright>(C) 2025 Panagiotis Kiriakopoulos</copyright>
-	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<license>GNU General Public License version 2 or later; see LICENSE</license>
 	<authorEmail>kiriakopoulos.p@gmail.com</authorEmail>
-	<authorUrl>www.github.com/pnkr</authorUrl>
-	<version>1.0.0</version>
+	<authorUrl>https://github.com/pnkr</authorUrl>
+	<version>1.1.0</version>
 	<description>PLG_SCHEMAORG_SERVICE_XML_DESCRIPTION</description>
 	<namespace path="src">Pnkr\Plugin\Schemaorg\Service</namespace>
 	<files>
 		<folder plugin="service">services</folder>
 		<folder>src</folder>
 		<folder>forms</folder>
+		<folder>language</folder>
 	</files>
-	<languages>
-		<language tag="en-GB">language/en-GB/plg_schemaorg_service.ini</language>
-		<language tag="en-GB">language/en-GB/plg_schemaorg_service.sys.ini</language>
-		<language tag="el-GR">language/el-GR/plg_schemaorg_service.ini</language>
-		<language tag="el-GR">language/el-GR/plg_schemaorg_service.sys.ini</language>
-	</languages>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
